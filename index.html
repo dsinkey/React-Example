@@ -8,20 +8,28 @@
     <div id="mount-point"></div>
     <script type="text/jsx">
     /** @jsx React.DOM */
-      var MyComponent = React.createClass({
+      var Counter = React.createClass({
+        incrementCount: function(){
+          this.setState({
+            count: this.state.count + 1
+          });
+        },
         getInitialState: function(){
           return {
-            count: 5
+            count: 0
           }
         },
         render: function(){
           return (
-            <h1>{this.state.count}!</h1>
+            <div className="my-component">
+              <h1>Count: {this.state.count}</h1>
+              <button type="button" onClick={this.incrementCount}>increment</button>
+            </div>
           );
         }
       });
 
-      React.renderComponent(<MyComponent />, document.getElementById('mount-point'));
+      React.renderComponent(<Counter />, document.getElementById('mount-point'));
     </script>
   </body>
 </html>
