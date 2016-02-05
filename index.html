@@ -7,7 +7,21 @@
   <body>
     <div id="mount-point"></div>
     <script type="text/jsx">
-      // React Code Goes Here
+    /** @jsx React.DOM */
+      var MyComponent = React.createClass({
+        getInitialState: function(){
+          return {
+            count: 5
+          }
+        },
+        render: function(){
+          return (
+            <h1>{this.state.count}!</h1>
+          );
+        }
+      });
+
+      React.renderComponent(<MyComponent />, document.getElementById('mount-point'));
     </script>
   </body>
 </html>
